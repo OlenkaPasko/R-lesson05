@@ -16,8 +16,8 @@ export default function Navigation() {
         <NavLink to="/about" className={makeNavLinkClass}>
           About
         </NavLink>
-        <NavLink to="/profile" className={makeNavLinkClass}>
-          Prifile
+        <NavLink to="/payments" className={makeNavLinkClass}>
+          Payments
         </NavLink>
       </nav>
     </header>
