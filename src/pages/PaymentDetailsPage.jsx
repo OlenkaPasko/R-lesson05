@@ -21,6 +21,17 @@ export default function PaymentDetailsPage() {
     <div>
       <h2>PaymentDetailsPage - {paymentId}</h2>
       {payment && <PaymentInfo payment={payment} />}
+      <ul>
+        <li>
+          <NavLink to="bank">Bank info</NavLink>
+        </li>
+        <li>
+          <NavLink to="receipt">Receipt info</NavLink>
+        </li>
+      </ul>
+
+      <Outlet />
     </div>
   );
 }
+//без слешів,це додати до поточного to="bank", to="/bank" абсолютний шлях
