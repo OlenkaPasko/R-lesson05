@@ -5,22 +5,22 @@ import PaymentInfo from "../components/PaymentInfo";
 //useParams;хук який повертає динамічні параметри
 
 export default function PaymentDetailsPage() {
-    const { paymentId } = useParams();
-    const [payment, setPyment] = useState(null);
+  const { paymentId } = useParams();
+  const [payment, setPyment] = useState(null);
 
   useEffect(() => {
     async function fetchPayments() {
       try {
-          const data = getPaymentById(paymentId);
-          setPyment(data);
+        const data = getPaymentById(paymentId);
+        setPyment(data);
       } catch (error) {}
     }
     fetchPayments();
   }, [paymentId]);
-    return (
-      <div>
-            <h2>PaymentDetailsPage - {paymentId}</h2>
-            {payment && <PaymentInfo payment={payment}/>}
-      </div>
-    );
+  return (
+    <div>
+      <h2>PaymentDetailsPage - {paymentId}</h2>
+      {payment && <PaymentInfo payment={payment} />}
+    </div>
+  );
 }
