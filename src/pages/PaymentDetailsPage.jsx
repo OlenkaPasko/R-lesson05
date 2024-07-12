@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams, Outlet } from "react-router-dom";
 import { getPaymentById } from "../payments-api";
 import PaymentInfo from "../components/PaymentInfo";
 //useParams;хук який повертає динамічні параметри
@@ -34,5 +34,9 @@ export default function PaymentDetailsPage() {
     </div>
   );
 }
-//без слешів,це додати до поточного to="bank",відносний шлях, береться поточний і додається вкінець 
+//Спочатку створюємо лінки які змінюють юрл-NavLink,
+// а потім оголошуємо раути, тобто маршрути, які будуть рендирити компонент
+//без слешів,це додати до поточного to="bank",відносний шлях, береться поточний і додається вкінець
 //to = "/bank" абсолютний шлях, бере повнюстю весь шлях і додоє
+//<Outlet /> вбудований. щоб працювали вкладені маршрути:BankInfo і PaymentReceipt
+    
