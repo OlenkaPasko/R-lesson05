@@ -16,6 +16,7 @@ export default function PaymentDetailsPage() {
   const backLinkRef = useRef(location.state ?? "/payments"); //посилання куди повертатись.
   //якщо є location.state,повертаємось до нього,на маршрут з якого прийшло,якщо нема?? "/payments"
   //Ref;створюй реф, одразу ініціалізуй, запам'ятай. Ref не змінюється запам'ятовує location.state при монтуванні
+  //цце для того щоб не скидати пошук,фіфльтри, запам'ятовувати що було переглянути
 
   const { paymentId } = useParams();
   const [payment, setPayment] = useState(null);
