@@ -1,12 +1,23 @@
-import { useEffect, useState } from "react";
-import { NavLink, useParams, Outlet } from "react-router-dom";
+import {Suspense, useEffect, useState, useRef } from "react";
+import {
+  NavLink,
+  useParams,
+  Outlet,
+  useLocation,
+  Link,
+} from "react-router-dom";
 import { getPaymentById } from "../payments-api";
 import PaymentInfo from "../components/PaymentInfo";
 //useParams;хук який повертає динамічні параметри
 
+
 export default function PaymentDetailsPage() {
+  const location = useLocation();
+  const backLinkRef = useRef(location.state ?? "/payments"); //посилання куди повертатись.
+  //якщо є location.state,повертаємось до нього,на маршрут з якого прийшло,якщо нема?? "/payments"
+
   const { paymentId } = useParams();
-  const [payment, setPyment] = useState(null);
+  const [payment, setPayment] = useState(null);
 
   useEffect(() => {
     async function fetchPayments() {
@@ -20,6 +31,7 @@ export default function PaymentDetailsPage() {
   return (
     <div>
       <h2>PaymentDetailsPage - {paymentId}</h2>
+      <Link to={backLinkRef.current}>Go back</Link>
       {payment && <PaymentInfo payment={payment} />}
       <ul>
         <li>
@@ -29,8 +41,9 @@ export default function PaymentDetailsPage() {
           <NavLink to="receipt">Receipt info</NavLink>
         </li>
       </ul>
-
-      <Outlet />
+      <Suspense fallback={<div>Loading child route component</div>}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 }
@@ -39,4 +52,3 @@ export default function PaymentDetailsPage() {
 //без слешів,це додати до поточного to="bank",відносний шлях, береться поточний і додається вкінець
 //to = "/bank" абсолютний шлях, бере повнюстю весь шлях і додоє
 //<Outlet /> вбудований. щоб працювали вкладені маршрути:BankInfo і PaymentReceipt
-    
