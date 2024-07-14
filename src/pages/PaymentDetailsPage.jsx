@@ -25,7 +25,7 @@ export default function PaymentDetailsPage() {
     async function fetchPayments() {
       try {
         const data = getPaymentById(paymentId);
-        setPyment(data);
+        setPayment(data);
       } catch (error) {}
     }
     fetchPayments();

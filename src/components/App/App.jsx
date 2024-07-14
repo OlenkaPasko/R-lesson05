@@ -6,8 +6,8 @@ import Navigation from "../Navigation/Navigation";
 //import PaymentsPage from "../../pages/PaymentsPage";
 //import PaymentDetailsPage from "../../pages/PaymentDetailsPage";
 //import NotFoundPage from "../../pages/NotFoundPage";
-import BankInfo from "../BankInfo";
-import PaymentReceipt from "../PaymentReceipt";
+//import BankInfo from "../BankInfo";
+//import PaymentReceipt from "../PaymentReceipt";
 import css from "./App.module.css";
 
 const HomePage = lazy(() => import("../../pages/HomePage"));
@@ -15,6 +15,10 @@ const AboutPage = lazy(() => import("../../pages/AboutPage"));
 const PaymentsPage = lazy(() => import("../../pages/PaymentsPage"));
 const PaymentDetailsPage = lazy(() => import("../../pages/PaymentDetailsPage"));
 const NotFoundPage = lazy(() => import("../../pages/NotFoundPage"));
+
+const BankInfo = lazy(() => import("../BankInfo"));
+const PaymentReceipt = lazy(() => import("../PaymentReceipt"));
+
 
 
 
